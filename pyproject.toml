@@ -37,10 +37,6 @@ zip-safe = false
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.setuptools.package-data]
-# If there were any non-Python files to include, specify here.
-"" = ["*.txt", "*.rst"]
-
 [tool.ruff]
 # Ruff configuration (will be overridden by separate ruff config if present)
 line-length = 88
