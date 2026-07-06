@@ -1,0 +1,16 @@
+Source: hello-python-deb
+Section: utils
+Priority: optional
+Maintainer: Alan Santos <alan@example.com>
+Build-Depends: debhelper-compat (= 13), python3-all, python3-setuptools, python3-wheel, dh-python
+Standards-Version: 4.6.0
+Homepage: https://github.com/alan-n7x/python-deb-factory
+
+Package: hello-python-deb
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}
+Description: Simple Hello World Python application
+ A minimal Python script that prints "Hello, World!".
+ .
+ This package provides the hello-python-deb command which outputs
+ a friendly greeting.

@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hello-python-deb"
+version = "0.1.0"
+description = "A simple Hello World Python application packaged as a Debian package"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "GPL-3.0-only"}
+authors = [
+    {name = "Alan Santos", email = "alan@example.com"}
+]
+keywords = ["python", "debian", "cli", "hello-world"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+# No runtime dependencies
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/alan-n7x/python-deb-factory"
+# Documentation = "https://github.com/alan-n7x/python-deb-factory/docs"
+# Repository = "https://github.com/alan-n7x/python-deb-factory"
+
+[project.scripts]
+hello-python-deb = "hello_python_deb.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = find:
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# If there were any non-Python files to include, specify here.
+"" = ["*.txt", "*.rst"]
+
+[tool.setuptools.zip-safe]
+false
+
+[tool.ruff]
+# Ruff configuration (will be overridden by separate ruff config if present)
+line-length = 88
+target-version = "py312"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "pre-commit>=3.7",
+    "build>=1.0",
+    "twine>=5.0",
+    "towncrier>=24.0",
+]
+
+[tool.mypy]
+python_version = 3.12
+warn_return_any = true
+warn_unused_configs = false
+
+[tool.towncrier]
+package = "hello_python_deb"
+filename = "CHANGELOG.md"
+directory = "changes"
+title_format = "# [{version}] - {project_date}"
+underlines = ["", "", ""]
+
+[[tool.towncrier.type]]
+directory = "breaking"
+name = "Breaking Changes"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "feature"
+name = "Features"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "bugfix"
+name = "Bug Fixes"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "docs"
+name = "Documentation"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "misc"
+name = "Miscellaneous"
+showcontent = true
