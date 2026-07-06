@@ -32,7 +32,6 @@ hello-python-deb = "hello_python_deb.__main__:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
-packages = find:
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -42,7 +41,7 @@ where = ["src"]
 "" = ["*.txt", "*.rst"]
 
 [tool.setuptools.zip-safe]
-false
+zip-safe = false
 
 [tool.ruff]
 # Ruff configuration (will be overridden by separate ruff config if present)
