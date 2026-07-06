@@ -1,6 +1,13 @@
 # Claude Code
 .claude/
 
+# Debian build artifacts
+*.deb
+*.changes
+*.buildinfo
+*.dsc
+*.tar.gz
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
